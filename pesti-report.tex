@@ -1,0 +1,264 @@
+% !TEX encoding = UTF-8 Unicode
+
+%----------tipo de documento------------------
+\documentclass[openany,11pt,twoside,a4paper]{report}
+
+%-------------- HEADER E FOOTER ------------
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+
+\pagestyle{fancy}                       
+\fancyheadoffset{0.1cm}
+%---------Header--------
+\fancyhead[LE,RO]{}			
+\fancyhead[RE,LO]{\small{Screen missing patients using smart and innovative solutions to eradicate tuberculosis}}
+%---------Footer---------
+\fancyfoot{}
+\fancyfoot[RE,LO]{\small{Diogo Capela}}				%
+\fancyfoot[LE,RO]{\thepage}
+
+%------------ First chapter page ----------------
+\fancypagestyle{plain}{%
+	\fancyhf{}%
+	\fancyfoot{}
+	\fancyfoot[RE,LO]{\small{Diogo Capela}}				
+	\fancyfoot[LE,RO]{\thepage}
+	\renewcommand{\headrulewidth}{.0pt}% Line at the header invisible
+	\renewcommand{\footrulewidth}{0.5pt}% Line at the footer visible
+}
+
+%--------- Rules -------------------
+\renewcommand{\headrulewidth}{0.5pt}    % Width of head rule 
+\renewcommand{\footrulewidth}{0.5pt}     % Width of footer rule 
+
+% ==================
+% Configuração página
+% ==================
+\setlength\parindent{0pt}
+
+% -----Topo------------------
+\setlength{\topmargin}{-\headheight}
+\setlength{\headsep}{0.43cm}
+
+% -----Espaçamento---------------
+\renewcommand{\baselinestretch}{1.5}   % espacamento de 1.5 linhas
+
+%------ Tabelas -----
+\usepackage{longtable}
+\usepackage
+[
+        a4paper,% other options: a3paper, a5paper, etc
+        left=3.1cm,
+        right=3.1cm,
+        top= 2.5 cm,
+        bottom=2.5 cm,
+]
+{geometry}
+
+% ------------------ Opções em tabelas-----------------
+\usepackage{array}		% para centrar colunas (de tabelas) com p{XXcm}
+\usepackage{paralist}	% para colocar enumerates em linha com um parágrafo
+
+\usepackage{booktabs,multirow} 
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{subcaption}
+
+\usepackage{tabu}
+\usepackage{tabulary}
+
+\usepackage[section]{placeins}
+
+
+%--------- Texto com cores --------------
+\usepackage[pdftex]{color,graphicx} %letras
+
+
+% -----------------PORTUGUES----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+%-----tipo letra---------
+\usepackage{helvet} % --- não existe Calibri em  pdflatex
+\renewcommand{\familydefault}{\sfdefault}
+
+%Portuguese-specific commands
+\usepackage[english]{babel}
+ 
+% -----------------   Hyphenation rules ----------------
+\usepackage{hyphenat}
+\hyphenation{re-cu-pe-rar te-ma a-re-a}
+
+%-------------------------------------------------------------------------------------------------------
+%para palavras que ao quebrar leva 2 hifen ,: por exemplo verificou-se: no texto fazer verificou{-}{-}se
+\defineshorthand{"-}{\nobreak\hskip0pt\discretionary{-}{-}{-}\nobreak\hskip0pt} 
+%-----------------------------------------------------------------------
+
+% ---------- Hyperlinks ------------
+\usepackage{cooltooltips} 
+\def\cool{\texttt{cool}}
+
+\usepackage{verbatim}
+
+% ------------------ÍNDICE COM LINKS ------------------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    linktoc=all
+}
+
+%--------------------------------------------------------------------------------
+%-----------------Para Titulos: capitulos, secções, etc.--------------------------
+%--------------------------------------------------------------------------------
+\usepackage{titlesec}
+
+%----------Retirar prefixo capítulo e acrescentar numero seguido de ponto----
+\titleformat{\chapter}[hang]{\bfseries\huge}{\thechapter.}{2pc}{} 
+\titlespacing*{\chapter}{0pt}{0pt}{15pt}
+
+%----------Tamanho da letra dos títulos das secções----
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{11pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{11pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+%------------ Apendices -----------
+\usepackage[titletoc,title]{appendix}
+\usepackage{tocloft}
+% ---------- INCLUIR PDF'S-------------
+\usepackage{pdfpages}
+%---------------------------------------
+\renewcommand\b[1]{\textbf{#1}}
+%-------------Numeração romana------------------
+\pagenumbering{Roman} % primeiras páginas
+ 
+ %--------- Inicio do documento--------------------
+ 
+\begin{document}
+
+% ----------------------------------------------------
+% Cover and Cover Sheet
+% ---------------------------------------------------
+\input{tex/cover/1st-page}
+\cleardoublepage
+
+\input{tex/cover/2nd-page}
+\cleardoublepage
+
+% ----------------------------------------------------------------------
+%  Acknowledgment
+% ----------------------------------------------------------------------
+\chapter*{Acknowledgment}
+\vspace{1.2cm}
+\input{tex/Acknowledgment}  
+\cleardoublepage
+
+% ----------------------------------------------------------------------
+%  Abstract
+% ----------------------------------------------------------------------
+\newpage
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\input{tex/abstract}
+\cleardoublepage
+
+% ----------------------------------------------------------------------
+%  Table of contents, list of tables, list of figures and nomenclature
+% ----------------------------------------------------------------------
+\newpage
+\begingroup
+
+\pagestyle{plain}
+
+\tableofcontents
+\cleardoublepage 
+ 
+\newpage
+\addcontentsline{toc}{chapter}{Images}
+\listoffigures
+\cleardoublepage 
+ 
+% --------------------------------------------
+% Glossary
+% --------------------------------------------
+\newpage
+\addcontentsline{toc}{chapter}{Glossary}
+\chapter*{Glossary}
+\input{tex/glossary}
+\cleardoublepage 
+\endgroup
+\pagenumbering{arabic}
+\newpage
+
+% -------------------------------------------
+% Chapters
+
+\chapter{Introduction}
+\label{introduction}
+\input{tex/introduction}
+\newpage\cleardoublepage
+
+\chapter{State of the art}
+\label{state-of-the-art}
+\input{tex/state-of-the-art}
+\newpage\cleardoublepage
+
+\chapter{Solution analysis and design} \label{cap:solution-analysis-and-design}
+\input{tex/solution-analysis-and-design}
+\newpage\cleardoublepage
+
+\chapter{Solution development}
+\label{cap:solution-development}
+\input{tex/solution-development}
+\newpage\cleardoublepage
+
+\chapter{Conclusion}
+\input{pesti-report/tex/conclusion}
+\newpage\cleardoublepage
+
+% -------------------------------------------
+% Bibliography
+
+\renewcommand\bibname{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{apalike} 
+\bibliography{bibliography/references}   
+
+
+
+% ------------------------------------------
+% Anexos
+
+\begin{appendix}
+\titleformat{\chapter}{\bfseries\huge}{\appendixname{} \thechapter.}{20pt}{\bfseries\huge}
+
+\renewcommand{\appendixname}{Attachment}
+\addtocontents{toc}{\protect\contentsline {chapter}{Attachments}{}{}}
+
+\addtocontents{toc}{\cftpagenumberson{chapter}} 
+\renewcommand{\appendixname}{Attachment}
+
+\chapter{Attachment A Title}
+\label{attachment-a}
+\input{pesti-report/tex/attachments/attachment-a}
+\newpage
+\cleardoublepage
+
+\chapter{Attachment B Title}
+\label{attachment-b}
+\input{pesti-report/tex/attachments/attachment-b}
+\newpage
+\cleardoublepage
+
+\chapter{Attachment C Title}
+\label{attachment-c}
+\input{pesti-report/tex/attachments/attachment-c}
+\newpage
+\cleardoublepage
+
+\end{appendix}
+\end{document}
+
