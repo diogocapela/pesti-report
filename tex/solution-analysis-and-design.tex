@@ -7,7 +7,7 @@ We were told about the problem and all the details when we first met with EPCON 
 See the screenshot of the app below:
 \\ \\
 
-\begin{figure}[!h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{pesti-report/images/epcon-web-app.jpg}
 	\caption{EPCON demo web application}
@@ -31,42 +31,12 @@ So, our project was to build a system that would consume this machine learning A
 \\ \\
 EPCON wanted the app to be free to use for anyone, but they also wanted to have a registration system for doctors who wanted to persist all their screenings and patients. The app should allow doctors to manage patients and screen their respective X-rays.
 
-\section{Domain model}
-
-The first step was to identify the different domains we would be working with. This was a time-consuming process because all of us were completely new to this computer-aided diagnosis area and also because all of us came from different countries and were speaking a non-native language. Nevertheless, we came up with these three different domains:
-
-\begin{itemize}
-\item
-User
-\item
-Patient
-\item
-Screening
-\end{itemize}
-
-A \textbf{user} is anyone who is using the app. The app is targeted to be use by doctors, healthcare professionals or medical students, but it is free and open to anyone, so we thought it would be better to abstract from the concept of doctor.
-\\ \\
-A \textbf{patient} is a record added and persisted by a user and can be referenced on a screening.
-\\ \\
-A \textbf{screening} is an attempt to diagnose an X-ray pulmonary image.
-
-
-\\ \\
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=1.0\linewidth]{pesti-report/images/domain-model.jpg}
-	\caption{Domain model}
-	\label{fig:domain-model}
-\end{figure}
-\\
-
-
 \section{Functional requirements}
 
 One of our first approaches during the first meeting was to try to define user-stories and write all of them down.
 
 \\ \\
-\begin{figure}[!h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\linewidth]{pesti-report/images/use-case-diagram.jpg}
 	\caption{Use case diagram}
@@ -128,3 +98,32 @@ A user can read the privacy policy
 \item
 A user can read the cookie policy
 \end{itemize}
+
+\section{Domain modeling}
+
+The first step was to identify the different domains we would be working with. This was a time-consuming process because all of us were completely new to this computer-aided diagnosis area and also because all of us came from different countries and were speaking a non-native language. Nevertheless, we came up with these three different domains:
+
+\begin{itemize}
+\item
+User
+\item
+Patient
+\item
+Screening
+\end{itemize}
+
+A \textbf{user} is anyone who is using the app. The app is targeted to be use by doctors, healthcare professionals or medical students, but it is free and open to anyone, so we thought it would be better to abstract from the concept of doctor.
+\\ \\
+A \textbf{patient} is a record added and persisted by a user and can be referenced on a screening.
+\\ \\
+A \textbf{screening} is an attempt to diagnose an X-ray pulmonary image.
+
+
+\\ \\
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1.0\linewidth]{pesti-report/images/domain-model.jpg}
+	\caption{Domain model}
+	\label{fig:domain-model}
+\end{figure}
+\\

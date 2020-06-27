@@ -68,6 +68,7 @@
 \usepackage{tabulary}
 
 \usepackage[section]{placeins}
+\usepackage{float}
 
 
 %--------- Texto com cores --------------
@@ -157,15 +158,6 @@
 \cleardoublepage
 
 % ----------------------------------------------------------------------
-%  Abstract
-% ----------------------------------------------------------------------
-\newpage
-\chapter*{Abstract}
-\addcontentsline{toc}{chapter}{Abstract}
-\input{tex/abstract}
-\cleardoublepage
-
-% ----------------------------------------------------------------------
 %  Table of contents, list of tables, list of figures and nomenclature
 % ----------------------------------------------------------------------
 \newpage
@@ -175,9 +167,22 @@
 
 \tableofcontents
 \cleardoublepage 
- 
+
+% ----------------------------------------------------------------------
+%  Abstract
+% ----------------------------------------------------------------------
 \newpage
-\addcontentsline{toc}{chapter}{Images}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\input{tex/abstract}
+\cleardoublepage
+ 
+% ----------------------------------------------------------------------
+%  List of Figures
+% ----------------------------------------------------------------------
+
+\newpage
+\addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
 \cleardoublepage 
  
@@ -224,41 +229,9 @@
 
 \renewcommand\bibname{Bibliography}
 \addcontentsline{toc}{chapter}{Bibliography}
-\bibliographystyle{apalike} 
+\bibliographystyle{IEEEtran}
 \bibliography{bibliography/references}   
 
 
-
-% ------------------------------------------
-% Anexos
-
-\begin{appendix}
-\titleformat{\chapter}{\bfseries\huge}{\appendixname{} \thechapter.}{20pt}{\bfseries\huge}
-
-\renewcommand{\appendixname}{Attachment}
-\addtocontents{toc}{\protect\contentsline {chapter}{Attachments}{}{}}
-
-\addtocontents{toc}{\cftpagenumberson{chapter}} 
-\renewcommand{\appendixname}{Attachment}
-
-\chapter{Attachment A Title}
-\label{attachment-a}
-\input{pesti-report/tex/attachments/attachment-a}
-\newpage
-\cleardoublepage
-
-\chapter{Attachment B Title}
-\label{attachment-b}
-\input{pesti-report/tex/attachments/attachment-b}
-\newpage
-\cleardoublepage
-
-\chapter{Attachment C Title}
-\label{attachment-c}
-\input{pesti-report/tex/attachments/attachment-c}
-\newpage
-\cleardoublepage
-
-\end{appendix}
 \end{document}
 
